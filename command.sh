@@ -107,8 +107,8 @@ while getopts 'unfmpskrlbq' opt; do
     u)
       git fetch --all &&
       git reset --hard origin/main &&
-      sudo cp -r systemd_services/* /etc/systemd/system &&
-      sudo systemctl daemon-reload
+      cp -r systemd_services/* /etc/systemd/system &&
+      systemctl daemon-reload
       ;;
     n)
       echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x31\x0d\x0a" | nc -w 3 192.168.0.101 4352 &

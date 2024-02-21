@@ -22,7 +22,7 @@ print(msg)
 
 # interpret the message or redirect to stdin
 if msg == "update":
-    cmd = "git fetch --all && git reset --hard origin/main"
+    cmd = "sudo ./command.sh -u"
     print("repo updated")
 elif msg == "wake-pc":
     cmd = "wakeonlan E0:D5:5E:41:6A:65"
