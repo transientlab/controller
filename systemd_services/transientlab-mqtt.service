@@ -7,6 +7,7 @@
 # 
 # Show controller system
 # : sc.service : service configuration for Linux server
+# controller
 
 [Unit]
 Description=mqtt_control
