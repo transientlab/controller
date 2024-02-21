@@ -102,19 +102,11 @@ pin_test_output() {
     sleep 0.2
 }
 
-update_system() {
-  git fetch --all && git reset --hard origin/main &&
-  sudo cp -r systemd_services/* /etc/systemd/system &&
-  sudo systemctl daemon-reload
-}
-
-
-
 while getopts 'unfmpskrlbq' opt; do
   case "$opt" in
     u)
-      cd /home/$USER
-      git clone git@github.com:kr315/transientlab_controller/ &&
+      git fetch --all &&
+      git reset --hard origin/main &&
       sudo cp -r systemd_services/* /etc/systemd/system &&
       sudo systemctl daemon-reload
       ;;
