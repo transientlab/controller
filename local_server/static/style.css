@@ -1,0 +1,98 @@
+
+      @media only screen and (max-width: 559px) {
+        :root{
+        --page-width: 420px;
+        --btn-text-size: 12px;
+        --font-scale: 16px;
+      }
+      }
+      @media only screen and (min-width: 560px) {
+        :root{
+        --page-width: 520px;
+        --btn-text-size: 16px;
+        --font-scale: 20px;
+      }
+
+      }
+      @media only screen and (min-width: 720px) {
+        :root{
+        --page-width: 600px;
+        --btn-text-size: 20px;
+        --font-scale: 26px;
+      }
+      }
+      @media only screen and (min-width: 1024px) {
+        :root{
+        --page-width: 800px;
+        --btn-text-size: 32px;
+        --font-scale: 40px;
+      }
+      }
+
+      @font-face { font-family: 'interstate'; src: url('static/interstate.ttf') format('truetype'); }
+
+      body {
+        background-color: #336699;
+        color: #ffffff;
+        font-family: interstate;
+        text-align: center;
+      }
+      h1 {
+        font-size: calc(var(--font-scale)*1);
+        line-height: calc(var(--font-scale)*1);
+      }
+      h2 {
+        font-size: calc(var(--font-scale)*0.8);
+        line-height: calc(var(--font-scale)*1);
+      }
+      h3 {
+        font-size: calc(var(--font-scale)*0.6);
+        line-height: calc(var(--font-scale)*1);
+      }
+      button {
+        font-family: interstate;
+        border: solid 3px;
+        border-right: solid 12px;
+        border-left: solid 12px;
+        background-color: #33669900;
+        border-color: #ffffff;
+        color: #ffffff;
+        padding: 15px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: var(--btn-text-size);
+        width: 300px;
+        align-self: center;
+        /* -webkit-filter: invert(100%);
+        filter: invert(100%); */
+      }
+      button:active
+      {
+        font-family: interstate;
+        background-color: #ffffff;
+        color: #336699;
+        border: solid 3px;
+        border-right: solid 12px;
+        border-left: solid 12px;
+        border-color: #cccccc;
+
+      }
+
+      .b2 {
+        width: calc(var(--page-width)/2);
+      }
+      .b3 {
+        width: calc(var(--page-width)/3);
+      }
+      .b4 {
+        width: calc(var(--page-width)/4);
+      }
+      .vid1 {
+        border: solid 1px black;
+        position: fixed;
+          top: -50vh;
+          left: 0px;
+          max-height: 25vh;
+          z-index: -1;
+      }

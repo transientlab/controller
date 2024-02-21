@@ -1,0 +1,78 @@
+<!-- 
+  _ t r a n s i e n t l a b
+  Author: Paweł Kreis 
+  pawel@transientlab.net
+
+  THIS CODE IS COPYRIGHTED 
+  YOU ARE NOT ALLOWED TO COPY OR USE THE CODE WITHOUT DISCUSSING IT WITH THE AUTHOR
+
+  Show controller system
+  : index.html : UI website
+-->
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>transientlab controller</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <div class="main">
+      <!-- 
+      for compatibility with iPad, 'command' function was replaced with 'location.href'
+      generally it's better to use FETCH, then you can remove reloading 'index.html' in connect.js, and use to original buttons
+      -->
+      <h1>Neue Nationalgalerie</h1>
+      <h2>Lucy Raven: “Ready Mix” (2021)</h2>
+      <h3>CONTROL</h3>
+      <button class="b3" onclick="command('n')">ON / UNMUTE</button>
+      <button class="b3" onclick="command('m')">MUTE</button>
+      <button class="b3" onclick="confirm_off()">OFF</button><br><br>
+      <h3>SOUND LEVEL</h3>
+      <button class="b3" onclick="command('q')">QUIET</button>
+      <button class="b3" onclick="command('b')">NORM</button>
+      <button class="b3" onclick="command('l')">LOUD</button><br><br>
+      <h3>PLAYBACK</h3>
+      <button class="b4" onclick="command('r')">⏴⏴</button>
+      <button class="b4" onclick="command('p')">⏵</button>
+      <button class="b4" onclick="command('s')">⏸</button>
+      <button class="b4" onclick="command('k')">⏵⏵</button>
+      <br><br> 
+      <!-- <div class="vid1">
+        <video autoplay muted loop preload>
+          <source src="static/out.mp4" type="video/mp4">
+        </video>
+      </div> -->
+      <h3>EIDOTECH ॱ GmbH</h3>
+     
+<!-- 
+      <h2>Neue Nationalgalerie</h2>
+      <h3>Lucy Raven: “Ready Mix” (2021)</h3>
+      CONTROL<br>
+      <button class="b2"     onclick="location.href='command/n'">ON/UNMUTE</button>
+      <button class="b2"    onclick="location.href='command/f'">OFF</button>
+      <br><br>
+      SOUND LEVEL<br>
+      <button class="b4"   onclick="location.href='command/l'">LOUD</button>
+      <button class="b4"  onclick="location.href='command/b'">NORM</button>
+      <button class="b4"  onclick="location.href='command/q'">QUIET</button>
+      <button class="b4"  onclick="location.href='command/m'">MUTE</button>
+      <br><br>
+      PLAYBACK<br>
+      <button class="b4"   onclick="location.href='command/p'">PLAY</button>
+      <button class="b4"   onclick="location.href='command/s'">STOP</button>
+      <button class="b4"     onclick="location.href='command/k'">FF</button>
+      <button class="b4"     onclick="location.href='command/r'">RW</button><br>
+      <h4>EIDOTECH ॱ GmbH</h4> 
+-->
+
+    </div>
+
+  </body>
+
+</html>

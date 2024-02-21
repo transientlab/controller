@@ -1,0 +1,20 @@
+[Unit]
+Description=mqtt-remote-lab
+After=network.target
+StartLimitIntervalSec=1
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+
+User=kr315
+Group=root
+
+WorkingDirectory=/home/kr315
+
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStart=/bin/bash -c 'python3 /home/kr315/web_control_rpi/mqtt-remote-lab.py'
+
+[Install]
+WantedBy=transientlab-controller.target

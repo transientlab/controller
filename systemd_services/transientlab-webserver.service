@@ -1,0 +1,24 @@
+# _ t r a n s i e n t l a b
+# Author: Paweł Kreis
+# pawel@transientlab.net
+#
+# THIS CODE IS COPYRIGHTED 
+# YOU ARE NOT ALLOWED TO COPY OR USE THE CODE WITHOUT DISCUSSING IT WITH THE AUTHOR
+# 
+# Show controller system
+# : sc.service : service configuration for Linux server
+
+
+[Unit]
+Description=show_control
+After=network.target
+StartLimitIntervalSec=1
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=kr315
+ExecStart=/bin/bash -c 'cd /etc/sc && sudo node server.js'
+
+[Install]
+WantedBy=transientlab-controller.target
