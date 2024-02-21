@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
   });
 });
 
-// respond with script execution
+// respond with command execution
 app.get('command/:id/', (req, res) => {
   console.log(req.params)
   const shellScript = `test_comm.sh -${req.params['id']}`;
@@ -55,6 +55,28 @@ app.get('command/:id/', (req, res) => {
   //   }
   // });  
 
+});
+
+// respond with data
+app.get('/read/:id', (req, res) => {
+  console.log(req.params);
+  if (req.params['id'] == 'temp') {
+    fs.readFile('/sys/class/thermal/thermal_zone0/temp', 'utf8', (err, data) => {
+      res.send(data);
+      console.log(data);
+    });  
+  }
+  if (req.params['id'] == 'date') {
+    exec(`date`, (error, stdout, stderr) => {
+      if (error) {
+        console.error('error: ', error);
+        res.sendStatus(500);
+      } else {
+        res.send(stdout);
+      }
+    });
+  }
+  
 });
 
 app.use('/static', express.static('static'));

@@ -17,40 +17,46 @@
     <title>transientlab controller</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/script.js"></script>
   </head>
 
-  <body>
+  <!-- refresh content -->
+  <body onload="read_data()">
+  
     <div class="main">
-      <!-- 
-      for compatibility with iPad, 'command' function was replaced with 'location.href'
-      generally it's better to use FETCH, then you can remove reloading 'index.html' in connect.js, and use to original buttons
-      -->
-      <h1>Neue Nationalgalerie</h1>
-      <h2>Lucy Raven: “Ready Mix” (2021)</h2>
-      <h3>CONTROL</h3>
+      <h3>INFO</h3>
+      <div id="pi_temp" class="info"></div>
+      <div id="date" class="info"></div>
+      <h3>TCP CONTROL</h3>
       <button class="b3" onclick="command('n')">ON / UNMUTE</button>
       <button class="b3" onclick="command('m')">MUTE</button>
       <button class="b3" onclick="confirm_off()">OFF</button><br><br>
-      <h3>SOUND LEVEL</h3>
       <button class="b3" onclick="command('q')">QUIET</button>
       <button class="b3" onclick="command('b')">NORM</button>
       <button class="b3" onclick="command('l')">LOUD</button><br><br>
-      <h3>PLAYBACK</h3>
       <button class="b4" onclick="command('r')">⏴⏴</button>
       <button class="b4" onclick="command('p')">⏵</button>
       <button class="b4" onclick="command('s')">⏸</button>
       <button class="b4" onclick="command('k')">⏵⏵</button>
+      <h3>GPIO CONTROL</h3>
+      <button class="b4" onclick="command('r')">&vzigzag;</button>
+      <button class="b4" onclick="command('p')">&nisd;</button>
+      <button class="b4" onclick="command('s')">&capbrcup;</button>
+      <button class="b4" onclick="command('k')">&emptyset;</button>
       <br><br> 
       <!-- <div class="vid1">
         <video autoplay muted loop preload>
           <source src="static/out.mp4" type="video/mp4">
         </video>
       </div> -->
-      <h3>EIDOTECH ॱ GmbH</h3>
+      <h3>transientlab</h3>
      
-<!-- 
+
+
+
+<!-- NO FETCH PROBLEM  -->
+<!--
       <h2>Neue Nationalgalerie</h2>
       <h3>Lucy Raven: “Ready Mix” (2021)</h3>
       CONTROL<br>

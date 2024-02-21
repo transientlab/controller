@@ -29,12 +29,16 @@
       }
       }
 
-      @font-face { font-family: 'interstate'; src: url('static/interstate.ttf') format('truetype'); }
+      /* @font-face { font-family: 'anonymous'; src: url('static/anonymous.ttf') format('truetype'); } */
+      @font-face {
+        font-family: "anonymous";
+        src: url("anonymous.ttf");
+    }
 
       body {
         background-color: #336699;
         color: #ffffff;
-        font-family: interstate;
+        font-family: anonymous;
         text-align: center;
       }
       h1 {
@@ -50,11 +54,11 @@
         line-height: calc(var(--font-scale)*1);
       }
       button {
-        font-family: interstate;
+        font-family: anonymous;
         border: solid 3px;
         border-right: solid 12px;
         border-left: solid 12px;
-        background-color: #33669900;
+        background-color: #22aa33;
         border-color: #ffffff;
         color: #ffffff;
         padding: 15px 15px;
@@ -69,7 +73,7 @@
       }
       button:active
       {
-        font-family: interstate;
+        font-family: anonymous;
         background-color: #ffffff;
         color: #336699;
         border: solid 3px;

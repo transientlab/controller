@@ -1,20 +1,27 @@
+# _ t r a n s i e n t l a b
+# Author: Paweł Kreis
+# pawel@transientlab.net
+#
+# THIS CODE IS COPYRIGHTED 
+# YOU ARE NOT ALLOWED TO COPY OR USE THE CODE WITHOUT DISCUSSING IT WITH THE AUTHOR
+# 
+# Show controller system
+# : sc.service : service configuration for Linux server
+
 [Unit]
-Description=mqtt-remote-lab
+Description=mqtt_control
 After=network.target
 StartLimitIntervalSec=1
 
 [Service]
 Type=simple
 Restart=always
-RestartSec=5
-
+RestartSec=1
 User=kr315
 Group=root
-
-WorkingDirectory=/home/kr315
-
+WorkingDirectory=/home/kr315/transientlab_controller
 ExecReload=/bin/kill -s HUP $MAINPID
-ExecStart=/bin/bash -c 'python3 /home/kr315/web_control_rpi/mqtt-remote-lab.py'
+ExecStart=/bin/bash -c 'python3 mqtt-remote-lab.py'
 
 [Install]
-WantedBy=transientlab-controller.target
+WantedBy=multi-user.target

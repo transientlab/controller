@@ -8,17 +8,20 @@
 # Show controller system
 # : sc.service : service configuration for Linux server
 
-
 [Unit]
-Description=show_control
+Description=webserver_control
 After=network.target
 StartLimitIntervalSec=1
+
 [Service]
 Type=simple
 Restart=always
 RestartSec=1
 User=kr315
-ExecStart=/bin/bash -c 'cd /etc/sc && sudo node server.js'
+Group=root
+WorkingDirectory=/home/kr315/transientlab_controller/local_server
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStart=/bin/bash -c 'sudo node server.js'
 
 [Install]
-WantedBy=transientlab-controller.target
+WantedBy=multi-user.target
