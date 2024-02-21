@@ -25,9 +25,6 @@
   <body onload="read_data()">
   
     <div class="main">
-      <h3>INFO</h3>
-      <div id="pi_temp" class="info"></div>
-      <div id="date" class="info"></div>
       <h3>TCP CONTROL</h3>
       <button class="b3" onclick="command('n')">ON / UNMUTE</button>
       <button class="b3" onclick="command('m')">MUTE</button>
@@ -39,12 +36,15 @@
       <button class="b4" onclick="command('p')">⏵</button>
       <button class="b4" onclick="command('s')">⏸</button>
       <button class="b4" onclick="command('k')">⏵⏵</button>
-      <h3>GPIO CONTROL</h3>
+      <br><h3>GPIO CONTROL</h3>
       <button class="b4" onclick="command('r')">&vzigzag;</button>
       <button class="b4" onclick="command('p')">&nisd;</button>
       <button class="b4" onclick="command('s')">&capbrcup;</button>
-      <button class="b4" onclick="command('k')">&emptyset;</button>
-      <br><br> 
+      <button class="b4" onclick="command('k')">&dbkarow;</button>
+      <br><h3>INFO</h3>
+      <div id="pi_temp" class="info"></div>
+      <div id="date" class="info"></div>
+      <div id="timer"></div>
       <!-- <div class="vid1">
         <video autoplay muted loop preload>
           <source src="static/out.mp4" type="video/mp4">

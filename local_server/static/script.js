@@ -1,6 +1,3 @@
-window.setTimeout(function(){
-  window.location.reload();
-  },10000);
 
 // confirm OFF
 function confirm_off() {
@@ -73,3 +70,16 @@ function read_data() {
   read('date');
   read('temp');
 }
+
+
+var el = document.getElementById("timer");
+var i = 0;
+
+function counter() {
+  el.innerHTML = i++;
+  if (i <= 10) {
+    setTimeout(counter, 1000);
+  }
+}
+
+counter();
