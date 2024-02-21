@@ -22,7 +22,6 @@ print(msg)
 
 # interpret the message or redirect to stdin
 if msg == "update":
-    # cmd = "git clone git@github.com:transientlab/web_control_rpi.git"
     cmd = "git fetch --all && git reset --hard origin/main"
     print("repo updated")
 elif msg == "wake-pc":

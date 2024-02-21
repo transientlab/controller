@@ -102,8 +102,22 @@ pin_test_output() {
     sleep 0.2
 }
 
-while getopts 'nfmpskrlbq' opt; do
+update_system() {
+  git fetch --all && git reset --hard origin/main &&
+  sudo cp -r systemd_services/* /etc/systemd/system &&
+  sudo systemctl daemon-reload
+}
+
+
+
+while getopts 'unfmpskrlbq' opt; do
   case "$opt" in
+    u)
+      cd /home/$USER
+      git clone git@github.com:kr315/transientlab_controller/ &&
+      sudo cp -r systemd_services/* /etc/systemd/system &&
+      sudo systemctl daemon-reload
+      ;;
     n)
       echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x31\x0d\x0a" | nc -w 3 192.168.0.101 4352 &
       echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x31\x0d\x0a" | nc -w 3 192.168.0.102 4352 &
