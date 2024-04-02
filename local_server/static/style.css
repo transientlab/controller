@@ -87,10 +87,10 @@
         width: calc(var(--page-width)/2);
       }
       .b3 {
-        width: calc(var(--page-width)/3);
+        width: calc(var(--page-width)/3.5);
       }
       .b4 {
-        width: calc(var(--page-width)/4);
+        width: calc(var(--page-width)/5);
       }
 
       .b8 {
@@ -100,7 +100,6 @@
 
       .btn_grd {
         margin: auto;
-        border: 1px solid black;
         display: flex;
         flex-wrap: wrap;
         align-items: stretch;
@@ -108,7 +107,6 @@
       }
       .btn_grp {
         margin: auto;
-        border: 1px solid red;
       }
 
       .vid1 {
