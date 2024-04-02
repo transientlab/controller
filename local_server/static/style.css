@@ -92,6 +92,11 @@
       .b4 {
         width: calc(var(--page-width)/4);
       }
+
+      .b8 {
+        width: calc(var(--page-width)/8);
+      }
+
       .vid1 {
         border: solid 1px black;
         position: fixed;
