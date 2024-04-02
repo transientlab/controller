@@ -14,7 +14,7 @@ function command(comm_id) {
   fetch('/command/' + comm_id)
     .then(response => {
       if (response.ok) {
-        alert('ok');
+        // alert('ok');
         
       } else {
         alert('fail');
