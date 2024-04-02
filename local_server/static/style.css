@@ -116,7 +116,7 @@
         margin: auto;
       }
       .info {
-        font-size: var(--btn-text-size)*0.8;
+        font-size: calc(var(--btn-text-size)*0.8);
       }
       .vid1 {
         border: solid 1px black;
