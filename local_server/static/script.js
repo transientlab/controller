@@ -9,7 +9,7 @@ function confirm_off() {
 }
 
 // request shell script execution on server
-function command(comm_id) {
+function commandX(comm_id) {
   fetch('/command/' + comm_id)
     .then(response => {
       if (response.ok) {
@@ -28,13 +28,14 @@ function command(comm_id) {
 }
 
 // request shell script execution on server with params
-function commandX(comm_id, var1) {
-  fetch('/commandX/' + comm_id + '/' + var1)
+function command(comm_id, var1) {
+  fetch('/command/' + comm_id + '/' + var1)
     .then(response => {
       if (response.ok) {
         // alert('ok');
       } else {
         // alert('fail');
+        console.error('Error:', comm_id);
       }
     })
     .catch(error => {
@@ -70,16 +71,3 @@ function read_data() {
   read('date');
   read('temp');
 }
-
-
-var el = document.getElementById("timer");
-var i = 0;
-
-function counter() {
-  el.innerHTML = i++;
-  if (i <= 10) {
-    setTimeout(counter, 1000);
-  }
-}
-
-counter();
