@@ -36,7 +36,7 @@ app.get('/command/:comm_id', (req, res) => {
 
   exec(`/bin/bash ../${shellScript}`, (error, stdout, stderr) => {
     if (error) {
-      console.error('error: ', error);
+      console.error('error: ', error, stderr);
       res.sendStatus(500);
     } else {
       console.log(shellScript);

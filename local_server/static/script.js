@@ -17,12 +17,12 @@ function command(comm_id) {
         
       } else {
         alert('fail');
-        console.error('Error:', comm_id);
+        console.error('response error:', comm_id);
       }
     })
     .catch(error => {
       console.error('Error:', error, comm_id);
-      alert('error');
+      alert('error on catch');
     });
 
 }
