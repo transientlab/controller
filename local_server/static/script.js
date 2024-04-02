@@ -14,16 +14,15 @@ function command(comm_id) {
   fetch('/command/' + comm_id)
     .then(response => {
       if (response.ok) {
-        // alert('ok');
-        
+        console.log('ok')
       } else {
-        alert('fail');
+        alert('failed');
         console.error('response error:', comm_id);
       }
     })
     .catch(error => {
-      console.error('Error:', error, comm_id);
-      alert('error on catch');
+      console.error('no response:', error, comm_id);
+      alert('failed');
     });
 
 }
