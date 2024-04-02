@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 // respond with command execution
 app.get('command/:id/', (req, res) => {
   console.log(req.params)
-  const shellScript = `test_comm.sh -${req.params['id']}`;
+  const shellScript = `command.sh -${req.params['id']}`;
 
   exec(`/bin/bash ../${shellScript}`, (error, stdout, stderr) => {
     if (error) {
