@@ -10,6 +10,7 @@ function confirm_off() {
 
 // request shell script execution on server
 function command(comm_id) {
+  console.log('command: ' + comm_id)
   fetch('/command/' + comm_id)
     .then(response => {
       if (response.ok) {

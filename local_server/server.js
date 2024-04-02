@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 app.get('/command/:comm_id', (req, res) => {
   console.log(req.params)
   const shellScript = `command.sh -${req.params['comm_id']}`;
-
+  console.log(shellScript)
   exec(`/bin/bash ../${shellScript}`, (error, stdout, stderr) => {
     if (error) {
       console.error('error: ', error, stderr);
