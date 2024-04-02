@@ -114,6 +114,8 @@ while getopts 'c:g:unfmpskrlbq' opt; do
           echo "Invalid argument for -c: $OPTARG" >&2
           exit 1
           ;;
+      esac
+      ;;
     g)
       case "$OPTARG" in
         [1-8]*)
@@ -124,6 +126,8 @@ while getopts 'c:g:unfmpskrlbq' opt; do
           echo "Invalid argument for -g: $OPTARG" >&2
           exit 1
           ;;
+      esac
+      ;;
     u)
       git fetch --all &&
       git reset --hard origin/main &&
