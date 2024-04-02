@@ -95,7 +95,7 @@
 
       .b8 {
         width: calc(var(--page-width)/8);
-        padding: 4px;
+        padding: 4px 4px;
       }
 
       .vid1 {
