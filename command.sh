@@ -108,7 +108,7 @@ while getopts 'c:g:unfmpskrlbq' opt; do
       case "$OPTARG" in
         [1-8]*)
           number="$OPTARG"
-          echo "FN,ON,$number\r\n" | nc 174.128.0.101 7078
+          echo -n -e "FN,ON,$number\r\n" | nc 174.128.0.101 7078 -q 0
           ;;
         *)
           echo "Invalid argument for -c: $OPTARG" >&2
@@ -120,7 +120,7 @@ while getopts 'c:g:unfmpskrlbq' opt; do
       case "$OPTARG" in
         [1-8]*)
           number="$OPTARG"
-          echo "FN,OFF,$number\r\n" | nc 174.128.0.101 7078
+          echo -n -e "FN,OFF,$number\r\n" | nc 174.128.0.101 7078 -q 0
           ;;
         *)
           echo "Invalid argument for -g: $OPTARG" >&2
