@@ -5,7 +5,6 @@ else:
     the_string = input("Provide a string to be converted to hex:\n")
 
 # panasonic: %1POWR0 
-
 hex_string = ""
 for c in the_string:
     hex_string += "\\" + hex(ord(c))[1:]

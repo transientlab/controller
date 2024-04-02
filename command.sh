@@ -102,8 +102,28 @@ pin_test_output() {
     sleep 0.2
 }
 
-while getopts 'unfmpskrlbq' opt; do
+while getopts 'c:g:unfmpskrlbq' opt; do
   case "$opt" in
+    c)
+      case "$OPTARG" in
+        [1-8]*)
+          number="$OPTARG"
+          echo "FN,ON,$number\r\n" | nc 174.128.0.101 7078
+          ;;
+        *)
+          echo "Invalid argument for -c: $OPTARG" >&2
+          exit 1
+          ;;
+    g)
+      case "$OPTARG" in
+        [1-8]*)
+          number="$OPTARG"
+          echo "FN,OFF,$number\r\n" | nc 174.128.0.101 7078
+          ;;
+        *)
+          echo "Invalid argument for -g: $OPTARG" >&2
+          exit 1
+          ;;
     u)
       git fetch --all &&
       git reset --hard origin/main &&
