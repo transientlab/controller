@@ -108,7 +108,9 @@
       .btn_grp {
         margin: auto;
       }
-
+      .info {
+        font-size: var(--btn-text-size);
+      }
       .vid1 {
         border: solid 1px black;
         position: fixed;
