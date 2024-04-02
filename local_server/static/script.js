@@ -9,7 +9,7 @@ function confirm_off() {
 }
 
 // request shell script execution on server
-function commandX(comm_id) {
+function command(comm_id) {
   fetch('/command/' + comm_id)
     .then(response => {
       if (response.ok) {
@@ -28,14 +28,13 @@ function commandX(comm_id) {
 }
 
 // request shell script execution on server with params
-function command(comm_id, var1) {
-  fetch('/command/' + comm_id + '/' + var1)
+function commandX(comm_id, var1) {
+  fetch('/commandX/' + comm_id + '/' + var1)
     .then(response => {
       if (response.ok) {
         // alert('ok');
       } else {
         // alert('fail');
-        console.error('Error:', comm_id);
       }
     })
     .catch(error => {
