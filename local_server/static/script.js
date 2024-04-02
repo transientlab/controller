@@ -1,8 +1,8 @@
 
 // confirm OFF
-function confirm_off() {
+function confirm(comm_id) {
   if (confirm("Are you sure?") == true) {
-    command('f');
+    command(comm_id);
   } else {
     alert('Cancelled')
   }
