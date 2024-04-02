@@ -61,7 +61,7 @@
         background-color: #22aa33;
         border-color: #ffffff;
         color: #ffffff;
-        padding: 15px 15px;
+        padding: calc(var(--page-width)/100) calc(var(--page-width)/100);
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -94,8 +94,21 @@
       }
 
       .b8 {
-        width: calc(var(--page-width)/8);
-        padding: 4px 4px;
+        width: calc(var(--page-width)/5);
+        /* padding: 8px 8px; */
+      }
+
+      .btn_grd {
+        margin: auto;
+        border: 1px solid black;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        max-width: var(--page-width);
+      }
+      .btn_grp {
+        margin: auto;
+        border: 1px solid red;
       }
 
       .vid1 {

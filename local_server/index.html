@@ -41,24 +41,43 @@
       <button class="b4" onclick="command('p')">&nisd;</button>
       <button class="b4" onclick="command('s')">&capbrcup;</button>
       <button class="b4" onclick="command('k')">&dbkarow;</button>
+      
       <br><h3>RELAY CONTROL</h3>
-      <button class="b8" onclick="command('c 1')">1 ON</button>
-      <button class="b8" onclick="command('c 2')">2 ON</button>
-      <button class="b8" onclick="command('c 3')">3 ON</button>
-      <button class="b8" onclick="command('c 4')">4 ON</button>
-      <button class="b8" onclick="command('c 5')">5 ON</button>
-      <button class="b8" onclick="command('c 6')">6 ON</button>
-      <button class="b8" onclick="command('c 7')">7 ON</button>
-      <button class="b8" onclick="command('c 8')">8 ON</button>
-      <br>
-      <button class="b8" onclick="command('g 1')">1 OFF</button>
-      <button class="b8" onclick="command('g 2')">2 OFF</button>
-      <button class="b8" onclick="command('g 3')">3 OFF</button>
-      <button class="b8" onclick="command('g 4')">4 OFF</button>
-      <button class="b8" onclick="command('g 5')">5 OFF</button>
-      <button class="b8" onclick="command('g 6')">6 OFF</button>
-      <button class="b8" onclick="command('g 7')">7 OFF</button>
-      <button class="b8" onclick="command('g 8')">8 OFF</button>
+      <div class="btn_grd">
+        <div class="btn_grp">
+        <button class="b8" onclick="command('c 1')">1 ON</button><br>
+        <button class="b8" onclick="command('g 1')">1 OFF</button>  
+        </div>
+        <div class="btn_grp">
+        <button class="b8" onclick="command('c 2')">2 ON</button><br>
+        <button class="b8" onclick="command('g 2')">2 OFF</button>  
+        </div>
+        <div class="btn_grp">
+          <button class="b8" onclick="command('c 3')">3 ON</button><br>
+          <button class="b8" onclick="command('g 3')">3 OFF</button>  
+        </div>
+        <div class="btn_grp">
+          <button class="b8" onclick="command('c 4')">4 ON</button><br>
+          <button class="b8" onclick="command('g 4')">4 OFF</button>  
+        </div>
+        <div class="btn_grp">
+          <button class="b8" onclick="command('c 5')">5 ON</button><br>
+          <button class="b8" onclick="command('g 5')">5 OFF</button>  
+        </div>
+        <div class="btn_grp">
+          <button class="b8" onclick="command('c 6')">6 ON</button><br>
+          <button class="b8" onclick="command('g 6')">6 OFF</button>  
+        </div>
+        <div class="btn_grp">
+          <button class="b8" onclick="command('c 7')">7 ON</button><br>
+          <button class="b8" onclick="command('g 7')">7 OFF</button>  
+        </div>
+        <div class="btn_grp">
+          <button class="b8" onclick="command('c 8')">8 ON</button><br>
+          <button class="b8" onclick="command('g 8')">8 OFF</button>  
+        </div>
+      </div>
+
       <br><h3>INFO</h3>
       <div id="pi_temp" class="info"></div>
       <div id="date" class="info"></div>
