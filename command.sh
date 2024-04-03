@@ -102,13 +102,18 @@ pin_test_output() {
     sleep 0.2
 }
 
-while getopts 'c:g:unfmpskrlbq' opt; do
+pins_configure_all
+while getopts 'h:g:unfmpskrliqabcd' opt; do
   case "$opt" in
-    c)
+    h)
       case "$OPTARG" in
         [1-8]*)
           number="$OPTARG"
-          echo -n -e "FN,ON,$number\r\n" | nc 174.128.0.101 7078 -q 0
+          echo -n -e "FN,ON,$number\r\n" | nc 174.128.0.101 7078 -w 1
+          ;;
+        one)
+          
+          echo -n -e "FN,ON,1\r\n" | nc 174.128.0.101 7078 -w 1
           ;;
         *)
           echo "Invalid argument for -c: $OPTARG" >&2
@@ -120,7 +125,7 @@ while getopts 'c:g:unfmpskrlbq' opt; do
       case "$OPTARG" in
         [1-8]*)
           number="$OPTARG"
-          echo -n -e "FN,OFF,$number\r\n" | nc 174.128.0.101 7078 -q 0
+          echo -n -e "FN,OFF,$number\r\n" | nc 174.128.0.101 7078 -w 1
           ;;
         *)
           echo "Invalid argument for -g: $OPTARG" >&2
@@ -172,12 +177,24 @@ while getopts 'c:g:unfmpskrlbq' opt; do
       echo "/processing/input/\d/gain="0"" | nc -w 3 192.168.0.28 25003
       ;;
 
-    b)
+    i)
       echo "/processing/input/\d/gain="-6"" | nc -w 3 192.168.0.28 25003
       ;;
 
     q)
       echo "/processing/input/\d/gain="-12"" | nc -w 3 192.168.0.28 25003
+      ;;
+    a)
+      pin_state_toggle 2
+      ;;
+    b)
+      
+      ;;
+    c)
+      
+      ;;
+    d)
+      
       ;;
 
     ?)

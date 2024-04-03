@@ -1,12 +1,12 @@
 
-      @media only screen and (max-width: 559px) {
+      @media only screen and (max-width: 360px) {
         :root{
-        --page-width: 420px;
+        --page-width: 320px;
         --btn-text-size: 12px;
         --font-scale: 16px;
       }
       }
-      @media only screen and (min-width: 560px) {
+      @media only screen and (min-width: 360px) {
         :root{
         --page-width: 520px;
         --btn-text-size: 16px;
@@ -36,6 +36,7 @@
     }
 
       body {
+        /* filter: invert(0.7); */
         background-color: #ffd268;
         color: #000000;
         font-family: anonymous;
@@ -58,6 +59,7 @@
         line-height: calc(var(--font-scale)*1);
       }
       button {
+        opacity: 0.9;;
         font-family: anonymous;
         border: solid 3px;
         border-right: solid 12px;
@@ -65,12 +67,12 @@
         background-color: #22aa33;
         border-color: #ffffff;
         color: #ffffff;
-        padding: 8px 8px;
+        padding: calc(100vw/100) calc(100vw/100);
         text-align: center;
         text-decoration: none;
         display: inline-block;
         font-size: calc(var(--btn-text-size)*0.8);
-        width: 300px;
+        max-width: 250px;
         align-self: center;
         /* -webkit-filter: invert(100%);
         filter: invert(100%); */
@@ -107,10 +109,14 @@
         display: flex;
         flex-wrap: wrap;
         align-items: stretch;
+        flex-direction:row;
         max-width: var(--page-width);
         
       }
       .btn_grp {
+        margin: auto;
+        padding: 10px;
+
         flex: 1;
         flex-basis: 22%;
         margin: auto;
@@ -129,7 +135,7 @@
       .tlogo {
         position: fixed;
         right: -200px;
-        top: 50vh;
+        top: 0;
         height: 40vh;
         z-index: -10;
         opacity: 0.1;
