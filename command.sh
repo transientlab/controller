@@ -185,7 +185,7 @@ while getopts 'h:g:unfmpskrliqabcd' opt; do
       echo "/processing/input/\d/gain="-12"" | nc -w 3 192.168.0.28 25003
       ;;
     a)
-      pin_state_toggle 2
+      pin_state_toggle "2"
       ;;
     b)
       
