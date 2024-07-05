@@ -42,3 +42,16 @@ class fnip(tcp_device):
     
     def mode(ch, mode):
         return "FN,MODE," + str(ch) + "," + str(mode) + "\r\n"
+    
+    class panansonic_pt_rq(tcp_device):
+        def __init__(self, ip_addr, port) -> None:
+            ip_addr = "174.128.0.102"
+            port = 4352
+            user = "admin"
+            passw = "@Panasonic"
+
+        def on():
+            "\x25\x31\x50\x4f\x57\x52\x20\x31\x0d\x0a"
+
+        def off():
+            "\x25\x31\x50\x4f\x57\x52\x20\x30\x0d\x0a"

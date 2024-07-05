@@ -1,15 +1,3 @@
-# _ t r a n s i e n t l a b
-# Author: Paweł Kreis
-# pawel@transientlab.net
-#
-# THIS CODE IS COPYRIGHTED 
-# YOU ARE NOT ALLOWED TO COPY OR USE THE CODE WITHOUT DISCUSSING IT WITH THE AUTHOR
-#
-# Show controller system
-# : command.sh : os commands for controlling devices
-# 
-
-
 # GPIO functions
 GPIO_PATH=/sys/class/gpio
 
@@ -27,7 +15,7 @@ pin_conf_output()
 
 pin_conf_input()
 {
-  echo "out" > $GPIO_PATH/gpio$1/direction
+  echo "in" > $GPIO_PATH/gpio$1/direction
 }
 
 pin_state_get()
@@ -59,35 +47,35 @@ pin_state_toggle()
 
 pins_configure_all()
 {
-  # relay 1
+
   pin_export "2"
   pin_conf_output "2"
   sleep 0.1
-  # relay 2
+
   pin_export "3"
   pin_conf_output "3"
   sleep 0.1
-  # relay 3
+
   pin_export "14"
   pin_conf_output "14"
   sleep 0.1
-  # relay 4
+
   pin_export "15"
   pin_conf_output "15"
   sleep 0.1
-  # relay 5
+
   pin_export "17"
   pin_conf_output "17"
   sleep 0.1
-  # relay 6
+
   pin_export "27"
   pin_conf_output "27"
   sleep 0.1
-  # relay 7
+
   pin_export "22"
   pin_conf_output "22"
   sleep 0.1
-  # relay 8
+
   pin_export "23"
   pin_conf_output "23"
   sleep 0.1
@@ -102,21 +90,17 @@ pin_test_output() {
     sleep 0.2
 }
 
-pins_configure_all
+# pins_configure_all
 while getopts 'h:g:unfmpskrliqabcd' opt; do
   case "$opt" in
     h)
       case "$OPTARG" in
         [1-8]*)
           number="$OPTARG"
-          echo -n -e "FN,ON,$number\r\n" | nc 174.128.0.101 7078 -w 1
-          ;;
-        one)
-          
-          echo -n -e "FN,ON,1\r\n" | nc 174.128.0.101 7078 -w 1
+          echo -n -e "FN,ON,$number\r\n" | nc 174.128.0.102 7078 -w 1
           ;;
         *)
-          echo "Invalid argument for -c: $OPTARG" >&2
+          echo "there are only 8 relays (1-8), not $OPTARG" >&2
           exit 1
           ;;
       esac
@@ -125,10 +109,10 @@ while getopts 'h:g:unfmpskrliqabcd' opt; do
       case "$OPTARG" in
         [1-8]*)
           number="$OPTARG"
-          echo -n -e "FN,OFF,$number\r\n" | nc 174.128.0.101 7078 -w 1
+          echo -n -e "FN,OFF,$number\r\n" | nc 174.128.0.102 7078 -w 1
           ;;
         *)
-          echo "Invalid argument for -g: $OPTARG" >&2
+          echo "there are 8 relays (1-8), not $OPTARG" >&2
           exit 1
           ;;
       esac
@@ -140,14 +124,14 @@ while getopts 'h:g:unfmpskrliqabcd' opt; do
       systemctl daemon-reload
       ;;
     n)
-      echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x31\x0d\x0a" | nc -w 3 192.168.0.101 4352 &
+      echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x31\x0d\x0a" | nc -w 3 192.168.0.102 4352 &
       echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x31\x0d\x0a" | nc -w 3 192.168.0.102 4352 &
       echo "/processing/input/\d/mute="false"" | nc -w 3 192.168.0.28 25003 &
       echo "play: loop: true" | nc -w 3 192.168.0.59 9993
       ;;
 
     f)
-      echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x30\x0d\x0a" | nc -w 3 192.168.0.101 4352 &
+      echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x30\x0d\x0a" | nc -w 3 192.168.0.102 4352 &
       echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x30\x0d\x0a" | nc -w 3 192.168.0.102 4352 &
       echo "/processing/input/\d/mute="true"" | nc -w 3 192.168.0.28 25003 &
       echo "stop" | nc -w 3 192.168.0.59 9993

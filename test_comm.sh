@@ -1,15 +1,3 @@
-# _ t r a n s i e n t l a b
-# Author: Paweł Kreis
-# pawel@transientlab.net
-#
-# THIS CODE IS COPYRIGHTED 
-# YOU ARE NOT ALLOWED TO COPY OR USE THE CODE WITHOUT DISCUSSING IT WITH THE AUTHOR
-#
-# Show controller system
-# : command.sh : os commands for controlling devices
-# 
-
-
 while getopts 'nfmpskrlbq' opt; do
   case "$opt" in
     n)
