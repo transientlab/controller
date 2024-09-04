@@ -11,7 +11,7 @@ for c in the_string:
 
 
 # panasonic
-# hex_string += "\\x0d\\x0a"
+hex_string += "\\x0d\\x0a"
 
 # fn
 hex_string += "\\x0d\\x0a"

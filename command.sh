@@ -20,9 +20,10 @@ pin_conf_input()
 
 pin_state_get()
 {
-    if grep -q 0 $GPIO_PATH/gpio$1/value
-    then return 0
-    else return 1 
+    if grep -q 0 $GPIO_PATH/gpio$1/value; then 
+      return 0
+    else 
+      return 1 
     fi 
 }
 
@@ -39,9 +40,9 @@ pin_state_set_off()
 pin_state_toggle()
 {
     if pin_state_get "$1" == 0; then
-    pin_state_set_on "$1"
+      pin_state_set_on "$1"
     else
-    pin_state_set_off "$1"
+      pin_state_set_off "$1"
     fi
 }
 

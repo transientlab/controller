@@ -10,6 +10,9 @@
 // : connect.js : webserver setup
 
 
+
+// FORMULARZ DO KONFIGURACJI
+
 const express = require('express');
 const { exec } = require('child_process');
 const fs = require('fs');
