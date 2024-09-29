@@ -160,7 +160,7 @@ while getopts 'h:g:nfmpskrliqabcdu' opt; do
       pin_state_toggle "2"
       ;;
     b)
-      
+      date | nc -w 1 174.128.0.4 11001 -u
       ;;
     c)
       
