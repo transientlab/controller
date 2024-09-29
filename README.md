@@ -16,3 +16,11 @@ A tool for remote control of devices over Internet and in local network
 - update
 
 ## remote.sh
+
+
+
+---
+## Future
+- sd heavy duty
+- Ram only linux run
+- Dhcp

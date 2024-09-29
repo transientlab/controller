@@ -92,8 +92,9 @@ pin_test_output() {
 }
 
 # pins_configure_all
-while getopts 'h:g:unfmpskrliqabcd' opt; do
+while getopts 'h:g:nfmpskrliqabcdu' opt; do
   case "$opt" in
+    # FNIP 8x16A - relays
     h)
       case "$OPTARG" in
         [1-8]*)
@@ -118,30 +119,26 @@ while getopts 'h:g:unfmpskrliqabcd' opt; do
           ;;
       esac
       ;;
-    u)
-      git fetch --all &&
-      git reset --hard origin/main &&
-      cp -r systemd_services/* /etc/systemd/system &&
-      systemctl daemon-reload
-      ;;
+
+   
+    # Panasonic PT-RQ
     n)
-      echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x31\x0d\x0a" | nc -w 3 192.168.0.102 4352 &
-      echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x31\x0d\x0a" | nc -w 3 192.168.0.102 4352 &
-      echo "/processing/input/\d/mute="false"" | nc -w 3 192.168.0.28 25003 &
-      echo "play: loop: true" | nc -w 3 192.168.0.59 9993
+      echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x31\x0d\x0a" | nc -w 3 192.168.0.102 4352
       ;;
 
     f)
-      echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x30\x0d\x0a" | nc -w 3 192.168.0.102 4352 &
-      echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x30\x0d\x0a" | nc -w 3 192.168.0.102 4352 &
-      echo "/processing/input/\d/mute="true"" | nc -w 3 192.168.0.28 25003 &
-      echo "stop" | nc -w 3 192.168.0.59 9993
+      echo -n -e "\x25\x31\x50\x4f\x57\x52\x20\x30\x0d\x0a" | nc -w 3 192.168.0.102 4352
       ;;
 
+    # Meyer Galileo
     m)
       echo "/processing/input/\d/mute="true"" | nc -w 3 192.168.0.28 25003
       ;;
-
+    q)
+      echo "/processing/input/\d/gain="-12"" | nc -w 3 192.168.0.28 25003
+      ;;
+    
+    # Hyperdeck Studio Pro
     p)
       echo "play: loop: true" | nc -w 3 192.168.0.59 9993
       ;;
@@ -158,17 +155,7 @@ while getopts 'h:g:unfmpskrliqabcd' opt; do
       echo "play: speed: -1000" | nc -w 3 192.168.0.59 9993
       ;;
 
-    l)
-      echo "/processing/input/\d/gain="0"" | nc -w 3 192.168.0.28 25003
-      ;;
-
-    i)
-      echo "/processing/input/\d/gain="-6"" | nc -w 3 192.168.0.28 25003
-      ;;
-
-    q)
-      echo "/processing/input/\d/gain="-12"" | nc -w 3 192.168.0.28 25003
-      ;;
+    # RPi GPIO
     a)
       pin_state_toggle "2"
       ;;
@@ -180,6 +167,14 @@ while getopts 'h:g:unfmpskrliqabcd' opt; do
       ;;
     d)
       
+      ;;
+
+    # update from git
+    u)
+      git fetch --all &&
+      git reset --hard origin/main &&
+      cp -r systemd_services/* /etc/systemd/system &&
+      systemctl daemon-reload
       ;;
 
     ?)
