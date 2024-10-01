@@ -4,8 +4,8 @@ import datetime
 
 broker_url = '7291b266c672483184f1547a494a7620.s1.eu.hivemq.cloud'
 broker_port = 8883
-broker_user = 'kr315'
-broker_pass = 'ZZX00cvv'
+broker_user = ''
+broker_pass = ''
 in_msg_channel = '/cmd/in'
 out_msg_channel = '/cmd/out'
 msg_count = 1
